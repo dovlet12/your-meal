@@ -51,7 +51,7 @@ $('.js-popup').on('click', function (event) {
 });
 
 // Mobile menu toggle
-$('.js-menu').on('click', function () {
+$('.js-menu').on('click',function () {
   $(this).toggleClass('is-active');
   $('.menu').toggleClass('is-opened');
 });
@@ -63,7 +63,7 @@ $('input[type="tel"]').inputmask({
 });
 
 // E-mail Ajax Send
-$('form').on('submit', function (e) {
+$('form').on('submit',function (e) {
   e.preventDefault();
 
   let form = $(this);
@@ -137,13 +137,3 @@ const mfpPopup = function (popupID, source) {
     // }
   });
 };
-
-const swiper = new Swiper('.swiper', {
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
