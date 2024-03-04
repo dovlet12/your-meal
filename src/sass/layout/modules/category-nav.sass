@@ -1,0 +1,41 @@
+.category-nav
+  padding-top: 47px
+
+  &__list
+    display: flex
+    justify-content: center
+    column-gap: 23.52px
+
+  &__item
+      display: flex
+      column-gap: 7.73px
+      justify-content: center
+      align-items: center
+      padding: 8px 14px
+      background: $c7
+      border-radius:  50px   
+      color: $c0
+      font-size: 16px
+      font-weight: 400
+      line-height: 22px
+      letter-spacing: 0%
+      text-align: left
+      transition: all 0.5s
+      &:focus:not(.disabled)
+       background: $c6
+      &:hover:not(.disabled)
+        outline: none
+        cursor: pointer
+        text-decoration: none
+        background: $c6  
+      &:active:not(.disabled)
+        background: $c6 
+      li
+        color: $c0
+        font-size: 16px
+        font-weight: 400
+        line-height: 22px
+        letter-spacing: 0%
+        text-align: left  
+      a
+        color: $c0   

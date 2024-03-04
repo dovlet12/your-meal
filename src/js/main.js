@@ -51,7 +51,7 @@ $('.js-popup').on('click', function (event) {
 });
 
 // Mobile menu toggle
-$('.js-menu').on('click',function () {
+$('.js-menu').on('click', function () {
   $(this).toggleClass('is-active');
   $('.menu').toggleClass('is-opened');
 });
@@ -63,7 +63,7 @@ $('input[type="tel"]').inputmask({
 });
 
 // E-mail Ajax Send
-$('form').on('submit',function (e) {
+$('form').on('submit', function (e) {
   e.preventDefault();
 
   let form = $(this);
@@ -137,3 +137,33 @@ const mfpPopup = function (popupID, source) {
     // }
   });
 };
+
+function initServicesTabs() {
+  const tabLink = $('.tab-nav__link');
+  const tabContentItem = $('.tab-content__item');
+
+  if (!tabLink.length || !tabContentItem.length) {
+    return;
+  }
+
+  // init tabs first render
+  tabContentItem.not(tabContentItem.first()).hide();
+
+  tabLink.on('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const currentElement = $(e.currentTarget);
+
+    const id = currentElement.attr('href').replace('#', '');
+    const currentTabContentItem = $(`.tab-content__item[data-id='${id}']`);
+
+    currentElement.closest('.tab-nav__list').find('.tab-nav__item').removeClass('tab-nav__item--active');
+    currentElement.parent().addClass('tab-nav__item--active');
+
+    tabContentItem.not(currentTabContentItem).fadeOut(0);
+    currentTabContentItem.fadeIn(500);
+  });
+}
+
+initServicesTabs();
